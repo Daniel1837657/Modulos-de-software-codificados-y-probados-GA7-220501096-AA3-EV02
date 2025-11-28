@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validación Nombre Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+        input {
+            padding: 8px;
+            width: 300px;
+        }
+        button {
+            padding: 7px 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Validación Nombre del Producto</h2>
+
+    <label for="nombre">Nombre del Producto:</label>
+    <input type="text" id="nombre" placeholder="Ingrese el nombre">
+    <button id="validar">Validar</button>
+
+    <script>
+        const input = document.getElementById('nombre');
+        const boton = document.getElementById('validar');
+
+        boton.addEventListener('click', () => {
+            const valor = input.value.trim();
+
+            // Regex: solo letras y espacios, mínimo 3 caracteres
+            const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,100}$/;
+
+            if(!regex.test(valor)){
+                alert("El nombre es obligatorio / inválido");
+            } else {
+                alert("Nombre válido ✅");
+            }
+        });
+    </script>
+
+</body>
+</html>
